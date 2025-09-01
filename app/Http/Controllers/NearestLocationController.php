@@ -16,13 +16,14 @@ class NearestLocationController extends Controller
 
     public function show(Request $request)
     {
-        $validated = $request->validate([
-            'lat' => ['required', 'numeric', 'between:-90,90'],
-            'lon' => ['required', 'numeric', 'between:-180,180'],
-        ]);
+        // $validated = $request->validate([
+        //     'lat' => ['required', 'numeric', 'between:-90,90'],
+        //     'lon' => ['required', 'numeric', 'between:-180,180'],
+        // ]);
 
-        $result = $this->service->findNearest((float) $validated['lat'], (float) $validated['lon']);
+        // dd($validated['lat'], $validated['lon']);
 
+        $result = $this->service->findNearest((float) $request->lat, (float) $request->lon);
         return response()->json($result);
     }
 }

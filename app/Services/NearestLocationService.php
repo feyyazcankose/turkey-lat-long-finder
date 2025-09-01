@@ -23,6 +23,7 @@ class NearestLocationService
             $nearestTown = $this->findNearestTownInCity($latitude, $longitude, (int) $nearestCity['id']);
         }
 
+
         return [
             'status' => 'success',
             'data' => [
